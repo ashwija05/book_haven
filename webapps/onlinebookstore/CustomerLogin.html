@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BookHaven</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<style>
+body {
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.login-card {
+    width: 400px;
+    min-height: 380px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.login-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.login-card input {
+    border-radius: 25px;
+}
+
+.login-card button {
+    border-radius: 25px;
+    background: linear-gradient(to right, #5f2c82, #49a09d);
+    border: none;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-link {
+    text-align: right;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.success-msg {
+    display: none;
+    color: green;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.error-msg {
+    display: none;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <!-- Registration Success Message -->
+    <div id="successMsg" class="success-msg">
+        Registration successful. Please login.
+    </div>
+
+    <!-- Login Error Message -->
+    <div id="errorMsg" class="error-msg"></div>
+
+    <!-- Logout Success Message -->
+    <div id="logoutMsg" class="alert alert-success text-center"
+         style="display:none;">
+        Successfully logged out!
+    </div>
+
+    <h3>Login</h3>
+
+    <form action="userlog" method="post" onsubmit="return validateLogin()">
+
+        <div class="form-group">
+            <input type="text" class="form-control"
+                   id="loginId"
+                   name="loginId"
+                   placeholder="Email"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control"
+                   id="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+        </div>
+
+        <div class="forgot-link">
+            <a href="ForgotPassword.html">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+            Login
+        </button>
+    </form>
+
+    <div class="signup-text">
+        Not a member?
+        <a href="CustomerRegister.html">Sign up</a>
+    </div>
+</div>
+
+<script>
+/* Show success message ONLY if registered=true is in URL */
+const params = new URLSearchParams(window.location.search);
+if (params.get("registered") === "true") {
+    document.getElementById("successMsg").style.display = "block";
+}
+
+/* Logout success message */
+if (params.get("logout") === "success") {
+    document.getElementById("logoutMsg").style.display = "block";
+}
+
+/* Login validation */
+function validateLogin() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    errorMsg.style.display = "none";
+    errorMsg.innerText = "";
+
+    if (loginId === "") {
+        errorMsg.innerText = "Email or Username required";
+    } else if (password.length < 8) {
+        errorMsg.innerText = "Password must be at least 8 characters";
+    } else {
+        return true; // allow submit
+    }
+
+    errorMsg.style.display = "block";
+    return false; // stop submit
+}
+</script>
+
+</body>
+</html>

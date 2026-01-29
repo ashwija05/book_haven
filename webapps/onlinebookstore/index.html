@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>BookHaven</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+
+<style>
+body {
+    background-color: #ffffff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.login-card {
+    width: 400px;
+    min-height: 380px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.login-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.login-card input {
+    border-radius: 25px;
+}
+
+.login-card button {
+    border-radius: 25px;
+    background: linear-gradient(to right, #5f2c82, #49a09d);
+    border: none;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.forgot-link {
+    text-align: right;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.forgot-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.forgot-link a:hover {
+    text-decoration: underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <h3>Login</h3>
+
+    <form id="loginForm" action="userlog" method="post" onsubmit="return validateLogin()">
+
+        <!-- Email -->
+        <div class="form-group">
+            <input type="text" class="form-control"
+                   id="loginId"
+                   name="loginId"
+                   placeholder="Email"
+                   required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <input type="password" class="form-control"
+                   id="password"
+                   name="password"
+                   placeholder="Password"
+                   required>
+        </div>
+
+        <!-- Forgot password -->
+        <div class="forgot-link">
+            <a href="ForgotPassword.html">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+            Login
+        </button>
+    </form>
+
+    <div class="signup-text">
+        Not a member?
+        <a href="CustomerRegister.html">Sign up</a>
+    </div>
+</div>
+
+</body>
+</html>
