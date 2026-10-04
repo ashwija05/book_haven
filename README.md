@@ -154,7 +154,7 @@ cd book_haven
 4. Select Apache Tomcat and start the application.
 
 # Step 5: Run the Application
-Open the application in your browser:http://localhost:8080/book_haven/
+Open the application in your browser:[http://localhost:8080/book_haven/](http://localhost:8080/onlinebookstore/)
 Default Username And Password For Admin Is "Admin" And "Admin"
 
 # Future Enhancements
